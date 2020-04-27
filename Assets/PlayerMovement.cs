@@ -2,12 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
+[RequireComponent(typeof(CharacterController2D))]
 
 public class PlayerMovement : MonoBehaviour
 {
-
-    public CharacterController2D controller;
+    public CharacterController2D m_controller;
+    public CharacterController2D controller
+    {
+        get
+        {
+            if (m_controller == null)
+            m_controller = GetComponent<CharacterController2D>();
+            return m_controller;
+        }
+    }
 
     public float runSpeed = 40f;
 
