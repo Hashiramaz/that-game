@@ -61,7 +61,7 @@ public class CharacterController2D : MonoBehaviour
 	}
 
 
-	public void Move(float move, bool crouch, bool jump)
+	public void Move(float move, bool crouch)
 	{
 		// If crouching, check to see if the character can stand up
 		if (!crouch)
@@ -124,7 +124,7 @@ public class CharacterController2D : MonoBehaviour
 			}
 		}
 		// If the player should jump...
-		if (m_Grounded && jump)
+		if (m_Grounded)
 		{
 			// Add a vertical force to the player.
 			m_Grounded = false;
