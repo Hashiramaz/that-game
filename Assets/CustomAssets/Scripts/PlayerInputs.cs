@@ -41,19 +41,8 @@ public class PlayerInputs : MonoBehaviour
             Jump = Input.GetButton("Jump");
             HorizontalAxis = Input.GetAxisRaw("Horizontal");
    
-            ShootAxisTrigger = Input.GetAxisRaw("FireAxis");
 
-            if(Input.GetAxis("RHorizontal") != 0){
-                joyx_pos = Input.GetAxis("RHorizontal");
-            }else{
-                joyx_pos = Input.GetAxis("Horizontal");            
-            }
 
-            if(Input.GetAxis("RVertical") != 0){
-                joyy_pos = Input.GetAxis("RVertical");
-            }else{
-                joyy_pos = Input.GetAxis("Vertical");
-            }
         }
 
 
