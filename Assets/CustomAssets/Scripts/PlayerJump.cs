@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Prime31;
 
 public class PlayerJump : MonoBehaviour
 {   
@@ -61,7 +61,7 @@ public class PlayerJump : MonoBehaviour
 
         set{
             m_isGrounded = value;
-            
+            	CameraKit2D.instance.isPlayerGrounded = value;
             // if(playerManager)
             //     playerManager.isGrounded = m_isGrounded;
         }
