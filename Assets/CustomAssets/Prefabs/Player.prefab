@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 7177427368706533837}
   - component: {fileID: 7177427368706533838}
   - component: {fileID: 7177427368706533839}
+  - component: {fileID: 114925927575172984}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -101,7 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b005891a5d1c45cc8cea8c713a8bfe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_JumpForce: 400
+  m_JumpForce: 600
   m_CrouchSpeed: 0.36
   m_MovementSmoothing: 0.05
   m_AirControl: 0
@@ -193,7 +194,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_controller: {fileID: 0}
-  runSpeed: 40
+  runSpeed: 30
 --- !u!114 &7177427368706533838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,13 +216,27 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7177427368706533830}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 417611eab38d630419baa61da9d16652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   fallMultiplier: 2.5
   lowJumpMultiplier: 2
+--- !u!114 &114925927575172984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7177427368706533830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6446998df0c509a40ae7d7487e33cf7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dashSpeed: 25
+  startDashTime: 0.1
 --- !u!1 &7177427368855978115
 GameObject:
   m_ObjectHideFlags: 0
@@ -246,7 +261,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7177427368855978115}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.036, y: -0.589, z: 0}
+  m_LocalPosition: {x: 0.01, y: -0.616, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7177427368706533825}
@@ -262,6 +277,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7177427368945792660}
   - component: {fileID: 7177427368945792661}
+  - component: {fileID: 7526919873948866662}
   m_Layer: 0
   m_Name: Graphics
   m_TagString: Untagged
@@ -277,8 +293,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7177427368945792651}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.059, z: 0}
-  m_LocalScale: {x: -0.14188848, y: 0.14188848, z: 0.14188848}
+  m_LocalPosition: {x: -0.001, y: -0.011, z: 0}
+  m_LocalScale: {x: -1.009943, y: 1.0099466, z: 0.065640844}
   m_Children: []
   m_Father: {fileID: 7177427368706533825}
   m_RootOrder: 2
@@ -320,9 +336,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 629e11553fd2e594fa552d24990f0d4a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ef7c0a7b716799b479224f4cc1d6c27c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 12, y: 12}
@@ -331,6 +347,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &7526919873948866662
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7177427368945792651}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: dd7f1d49c12a09e459300db979a947e1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7177427369444415679
 GameObject:
   m_ObjectHideFlags: 0
@@ -355,7 +390,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7177427369444415679}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.003, y: 0.633, z: 0}
+  m_LocalPosition: {x: 0.07, y: 0.36, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7177427368706533825}
