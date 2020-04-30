@@ -7,6 +7,7 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class PlayerMovementController : MonoBehaviour
 {
+    public Animator animator;
     protected PlayerInputs playerInputs{
         get{
             if(m_playerInputs == null)
@@ -43,13 +44,20 @@ public class PlayerMovementController : MonoBehaviour
     public float m_speed = 5f;
     public bool allowModifySpeed = true;
     
-
+    public void WalkAnimation()
+    {
+        animator.SetFloat ("Speed", Mathf.Abs(playerInputs.HorizontalAxis));
+    }
 
     private void FixedUpdate() {
 
         UpdateMovement();   
-        
                 
+    }
+
+    private void Update()
+    {
+        WalkAnimation();
     }
 
     //Update Movement of the Player 

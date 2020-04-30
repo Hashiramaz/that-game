@@ -89,7 +89,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1587,7 +1587,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 981.1, y: 385.5}
+  m_SizeDelta: {x: 1280, y: 720}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &716619311
 MonoBehaviour:
@@ -2462,12 +2462,12 @@ PrefabInstance:
     - target: {fileID: 7177427368706533825, guid: 80e1b6cfc80bf2648b8e746b6141f3fe,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.0227723
+      value: -5.082
       objectReference: {fileID: 0}
     - target: {fileID: 7177427368706533825, guid: 80e1b6cfc80bf2648b8e746b6141f3fe,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.29
+      value: -0.503
       objectReference: {fileID: 0}
     - target: {fileID: 7177427368706533825, guid: 80e1b6cfc80bf2648b8e746b6141f3fe,
         type: 3}
@@ -3997,15 +3997,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 6506025786669314404, guid: 5bc874f4f37a93449bbf8c7669825aca,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6506025786669314406, guid: 5bc874f4f37a93449bbf8c7669825aca,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6506025786669314401, guid: 5bc874f4f37a93449bbf8c7669825aca,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.931548
+      value: -4.93
       objectReference: {fileID: 0}
     - target: {fileID: 6506025786669314401, guid: 5bc874f4f37a93449bbf8c7669825aca,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.1307361
+      value: 1.73
       objectReference: {fileID: 0}
     - target: {fileID: 6506025786669314401, guid: 5bc874f4f37a93449bbf8c7669825aca,
         type: 3}
@@ -4057,5 +4067,10 @@ PrefabInstance:
       propertyPath: targetCollider
       value: 
       objectReference: {fileID: 1262227135}
+    - target: {fileID: 6506025786669314403, guid: 5bc874f4f37a93449bbf8c7669825aca,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bc874f4f37a93449bbf8c7669825aca, type: 3}

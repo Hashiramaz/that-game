@@ -5,6 +5,7 @@ using Prime31;
 
 public class PlayerJump : MonoBehaviour
 {   
+    public Animator animator;
      protected PlayerInputs playerInputs{
         get{
             if(m_playerInputs == null)
@@ -45,7 +46,6 @@ public class PlayerJump : MonoBehaviour
     public float checkGroundedRadius;
     public LayerMask WhatIsGround;
 
-
     public float fallMultiplier = 2.5f;
     public float lowJumpMultiplyer = 2.0f;
 
@@ -82,8 +82,12 @@ public class PlayerJump : MonoBehaviour
         UpdateGrounded();
         UpdateCoyoteJumpTime();
         UpdateGravity();
+        JumpAnimation();
     }
-
+    public void JumpAnimation()
+    {
+        animator.SetBool ("Jump", isJumping);
+    }
     //Update When The Player Can Jump
     public void UpdateJump(){
         
@@ -106,7 +110,6 @@ public class PlayerJump : MonoBehaviour
 
                 if(actualCoyoteTime > 0 && !isGrounded && !isJumping)
                 return;
-                
                 isJumping = true;
                 actualExtraJumps--;
             }
@@ -164,7 +167,6 @@ public class PlayerJump : MonoBehaviour
     //Update If The Player is od The Ground 
     public void UpdateGrounded(){
         isGrounded = (Physics2D.OverlapCircle(groundCheckBack.position,checkGroundedRadius, WhatIsGround) || Physics2D.OverlapCircle(groundCheckFront.position,checkGroundedRadius, WhatIsGround));
-        
         //isJumping = !isGrounded;
     }
 

@@ -8,20 +8,20 @@ public class betterDash : MonoBehaviour
     public float dashSpeed;
     private float dashTime;
     public float startDashTime;
-    private int directionH;
-    private int directionV;
     private float moveInput;
     public bool isOnDash;
     public bool canUseDash
     {
         get
         {
-            return !isOnDash;
+            return !isOnDash && currentTimeBetweenDash == 0;
         }
     }
     public Vector2 dashDirection;
     public float currentDashTime;
     private bool buttonDashPressed;
+    public float timeBetweenDash = 0.5f;
+    private float currentTimeBetweenDash;
     // Start is called before the first frame update
     void Start()
     {
@@ -68,16 +68,27 @@ public class betterDash : MonoBehaviour
             else
             {
                 dashTime = startDashTime;
+                currentTimeBetweenDash = timeBetweenDash;
                 rb.velocity = Vector2.zero;
                 isOnDash = false;
             }
         }
     }
-
+    public void UpdateTimeBetweenDash()
+    {
+        if (currentTimeBetweenDash > 0)
+        {
+            currentTimeBetweenDash -= Time.deltaTime;
+        }else
+        {
+            currentTimeBetweenDash = 0;
+        }
+    }
     // Update is called once per frame
     void FixedUpdate()
     {
         UpdateDashMoviment();
         UpdateDashInput();
+        UpdateTimeBetweenDash();
     }
 }
