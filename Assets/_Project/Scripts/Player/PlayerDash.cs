@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class betterDash : MonoBehaviour
+public class PlayerDash : MonoBehaviour
 {
     private Rigidbody2D rb;
     public float dashSpeed;

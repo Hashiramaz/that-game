@@ -46,9 +46,10 @@ GameObject:
   - component: {fileID: 114925927575172984}
   - component: {fileID: 49054895177048854}
   - component: {fileID: 280282611171101038}
+  - component: {fileID: 2052075223026273161}
   - component: {fileID: 3600365263986792730}
-  - component: {fileID: 5833529889855829518}
   - component: {fileID: 1048654653596276571}
+  - component: {fileID: 2326982855170843032}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -202,7 +203,7 @@ MonoBehaviour:
   isOnDash: 0
   dashDirection: {x: 0, y: 0}
   currentDashTime: 0
-  timeBetweenDash: 0.67
+  timeBetweenDash: 0.5
 --- !u!114 &49054895177048854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,6 +240,20 @@ MonoBehaviour:
   joyy_pos: 0
   ButtonSpeed: 0
   fireButton: 0
+--- !u!114 &2052075223026273161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7177427368706533830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6aa1ac597d1988b4e8f94ef41dca4a1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waitingTime: 600
+  isWaiting: 0
 --- !u!114 &3600365263986792730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,15 +269,13 @@ MonoBehaviour:
   animator: {fileID: 7526919873948866662}
   groundCheckBack: {fileID: 2994026769516092317}
   groundCheckFront: {fileID: 7177427368855978124}
-  m_jumpforce: 10
+  m_jumpforce: 9
   jumpTime: 0
   extraJumps: 0
-  checkGroundedRadius: 3
+  checkGroundedRadius: 0.01
   WhatIsGround:
     serializedVersion: 2
     m_Bits: 1
-  ij: 0
-  ig: 0
   fallMultiplier: 2.5
   lowJumpMultiplyer: 2
   normalGravity: 3
@@ -271,36 +284,8 @@ MonoBehaviour:
   buttonJumpPressed: 0
   actualExtraJumps: 0
   jumpTimeCounter: 0
-  actualCoyoteTime: 0.2
-  coyoteTime: 0.2
---- !u!114 &5833529889855829518
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7177427368706533830}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8104fd97922345140baca3cc71673bae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  groundCheckBack: {fileID: 2994026769516092317}
-  groundCheckFront: {fileID: 7177427368855978124}
-  m_jumpforce: 0
-  jumpTime: 0
-  extraJumps: 0
-  checkGroundedRadius: 0
-  WhatIsGround:
-    serializedVersion: 2
-    m_Bits: 0
-  isGrounded: 0
-  isJumping: 0
-  buttonJumpPressed: 0
-  actualExtraJumps: 0
-  jumpTimeCounter: 0
-  actualCoyoteTime: 0.2
-  coyoteTime: 0.2
+  actualCoyoteTime: 0
+  coyoteTime: 0
 --- !u!114 &1048654653596276571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -313,9 +298,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 899e8afc2ace53840ae5cbf396bff97f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 7526919873948866662}
+  currentMoveDirection: 0
   m_speed: 5
   allowModifySpeed: 1
+--- !u!114 &2326982855170843032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7177427368706533830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0548d96a1c8492489ca50366798236e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerJump: {fileID: 0}
+  playerDash: {fileID: 0}
+  playerMovementController: {fileID: 0}
+  playerWaiting: {fileID: 0}
 --- !u!1 &7177427368855978115
 GameObject:
   m_ObjectHideFlags: 0
@@ -357,6 +358,7 @@ GameObject:
   - component: {fileID: 7177427368945792660}
   - component: {fileID: 7177427368945792661}
   - component: {fileID: 7526919873948866662}
+  - component: {fileID: 1579688874131361729}
   m_Layer: 0
   m_Name: Graphics
   m_TagString: Untagged
@@ -445,6 +447,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1579688874131361729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7177427368945792651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e152afe20b28dbf479be194934716f1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
 --- !u!1 &7177427369444415679
 GameObject:
   m_ObjectHideFlags: 0

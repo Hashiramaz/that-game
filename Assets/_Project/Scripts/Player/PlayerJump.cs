@@ -82,11 +82,6 @@ public class PlayerJump : MonoBehaviour
         UpdateGrounded();
         UpdateCoyoteJumpTime();
         UpdateGravity();
-        JumpAnimation();
-    }
-    public void JumpAnimation()
-    {
-        animator.SetBool ("Jump", isJumping);
     }
     //Update When The Player Can Jump
     public void UpdateJump(){
@@ -167,7 +162,7 @@ public class PlayerJump : MonoBehaviour
     //Update If The Player is od The Ground 
     public void UpdateGrounded(){
         isGrounded = (Physics2D.OverlapCircle(groundCheckBack.position,checkGroundedRadius, WhatIsGround) || Physics2D.OverlapCircle(groundCheckFront.position,checkGroundedRadius, WhatIsGround));
-        //isJumping = !isGrounded;
+        isJumping = !isGrounded;
     }
 
     public void UpdateCoyoteJumpTime(){
