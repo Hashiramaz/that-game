@@ -65,8 +65,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7177427368706533830}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.33, y: 0.33, z: 0}
+  m_LocalScale: {x: 1.28, y: 1.28, z: 1}
   m_Children:
   - {fileID: 7177427369444415672}
   - {fileID: 7177427368855978124}
@@ -204,6 +204,7 @@ MonoBehaviour:
   dashDirection: {x: 0, y: 0}
   currentDashTime: 0
   timeBetweenDash: 0.5
+  extraDashes: 0
 --- !u!114 &49054895177048854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -269,13 +270,13 @@ MonoBehaviour:
   animator: {fileID: 7526919873948866662}
   groundCheckBack: {fileID: 2994026769516092317}
   groundCheckFront: {fileID: 7177427368855978124}
-  m_jumpforce: 9
+  m_jumpforce: 13
   jumpTime: 0
   extraJumps: 0
   checkGroundedRadius: 0.01
   WhatIsGround:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 7735
   fallMultiplier: 2.5
   lowJumpMultiplyer: 2
   normalGravity: 3

@@ -3,17 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class levelLoaderLevel1 : MonoBehaviour
+public class LevelLoader : MonoBehaviour
 {
+    public string sceneName;
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Player")
         {
-            NextLevel();
+            ChangeScene();
         }
     }
-    public void NextLevel()
+    public void ChangeScene()
     {
-        SceneManager.LoadScene("Level 1");
+        SceneManager.LoadScene(sceneName);
     }
 }

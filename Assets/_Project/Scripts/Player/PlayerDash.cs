@@ -14,7 +14,7 @@ public class PlayerDash : MonoBehaviour
     {
         get
         {
-            return !isOnDash && currentTimeBetweenDash == 0;
+            return !isOnDash && currentTimeBetweenDash == 0 && actualExtraDashes >= 0;
         }
     }
     public Vector2 dashDirection;
@@ -22,20 +22,23 @@ public class PlayerDash : MonoBehaviour
     private bool buttonDashPressed;
     public float timeBetweenDash = 0.5f;
     private float currentTimeBetweenDash;
+    public float extraDashes = 0f;
+    private float actualExtraDashes;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         dashTime = startDashTime;
+        actualExtraDashes = extraDashes;
     }
     public void UpdateDashInput()
     {
-        if (Input.GetButtonDown("Dash") && !buttonDashPressed)
+        if (Input.GetButtonDown("Dash"))
         {
             buttonDashPressed = true;
             TryUseDash();
         }
-        if (Input.GetButtonUp("Dash") && buttonDashPressed)
+        if (Input.GetButtonUp("Dash"))
         {
             buttonDashPressed = false;
         }
@@ -45,6 +48,7 @@ public class PlayerDash : MonoBehaviour
         if (canUseDash)
         {
             StartDash();
+            --actualExtraDashes;
         }
     }
     public void StartDash()
@@ -71,7 +75,14 @@ public class PlayerDash : MonoBehaviour
                 currentTimeBetweenDash = timeBetweenDash;
                 rb.velocity = Vector2.zero;
                 isOnDash = false;
+
             }
+        }
+    }
+    public void UpdateDashRestart()
+    {
+        if (PlayerStateInfo.Instance.playerJump.isGrounded){
+            actualExtraDashes = extraDashes;
         }
     }
     public void UpdateTimeBetweenDash()
@@ -90,5 +101,6 @@ public class PlayerDash : MonoBehaviour
         UpdateDashMoviment();
         UpdateDashInput();
         UpdateTimeBetweenDash();
+        UpdateDashRestart();
     }
 }
