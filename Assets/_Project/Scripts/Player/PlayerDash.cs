@@ -21,7 +21,7 @@ public class PlayerDash : MonoBehaviour
     public float currentDashTime;
     private bool buttonDashPressed;
     public float timeBetweenDash = 0.5f;
-    private float currentTimeBetweenDash;
+    public float currentTimeBetweenDash;
     public float extraDashes = 0f;
     private float actualExtraDashes;
     // Start is called before the first frame update
@@ -48,13 +48,13 @@ public class PlayerDash : MonoBehaviour
         if (canUseDash)
         {
             StartDash();
-            --actualExtraDashes;
         }
     }
     public void StartDash()
     {
         SetDashDirection();
         isOnDash = true;
+        --actualExtraDashes;
     }
     public void SetDashDirection()
     {

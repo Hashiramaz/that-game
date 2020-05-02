@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3969368329954844431}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.321, y: -0.053, z: 0}
+  m_LocalPosition: {x: -0.3, y: -0.053, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7177427368706533825}
@@ -50,6 +50,9 @@ GameObject:
   - component: {fileID: 3600365263986792730}
   - component: {fileID: 1048654653596276571}
   - component: {fileID: 2326982855170843032}
+  - component: {fileID: 2886380514880447573}
+  - component: {fileID: 6636308112863804505}
+  - component: {fileID: 7125530695368572380}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -132,7 +135,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 7177427368706533830}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 1ecb69cded513bf4194b4545597dc050, type: 2}
+  m_Material: {fileID: 6200000, guid: ec2481c60913b47d8bb304dd228940ec, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -165,7 +168,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 3
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: ec2481c60913b47d8bb304dd228940ec, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
@@ -179,7 +182,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 7177427368706533830}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 1ecb69cded513bf4194b4545597dc050, type: 2}
+  m_Material: {fileID: 6200000, guid: ec2481c60913b47d8bb304dd228940ec, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -199,6 +202,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dashSpeed: 25
+  dashTime: 0
   startDashTime: 0.1
   isOnDash: 0
   dashDirection: {x: 0, y: 0}
@@ -253,8 +257,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6aa1ac597d1988b4e8f94ef41dca4a1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waitingTime: 600
-  isWaiting: 0
+  waitingTime: 300
+  isIdle: 0
 --- !u!114 &3600365263986792730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -317,7 +321,53 @@ MonoBehaviour:
   playerJump: {fileID: 0}
   playerDash: {fileID: 0}
   playerMovementController: {fileID: 0}
-  playerWaiting: {fileID: 0}
+  playerIdling: {fileID: 0}
+  playerDeath: {fileID: 0}
+--- !u!114 &2886380514880447573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7177427368706533830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13dc72f63e2bcdf4db9445cb45fd37b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDead: 0
+  deathSound: Velho
+--- !u!114 &6636308112863804505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7177427368706533830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1d904981949ed948838ab6f379ef991, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  respawnTime: 120
+--- !u!114 &7125530695368572380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7177427368706533830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b13ff20942c461d40857e7ae301492df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Velho
+    clip: {fileID: 8300000, guid: cdbb9ad11b5e670409374a3efa10e15b, type: 3}
+    volume: 0
+    pitch: 0.1
+    source: {fileID: 0}
 --- !u!1 &7177427368855978115
 GameObject:
   m_ObjectHideFlags: 0
@@ -485,7 +535,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7177427369444415679}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.07, y: 1.001, z: 0}
+  m_LocalPosition: {x: 0.07, y: 0.985, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7177427368706533825}

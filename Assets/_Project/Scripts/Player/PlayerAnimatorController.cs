@@ -16,15 +16,19 @@ public class PlayerAnimatorController : MonoBehaviour
     public void UpdateWalkAnimation(){
         animator.SetBool("isWalking", PlayerStateInfo.Instance.playerMovementController.currentMoveDirection != 0);
     }
-    public void UpdateWaitingTimeAnimation(){
-        animator.SetBool("isWaiting", PlayerStateInfo.Instance.playerWaiting.isWaiting);
+    public void UpdateIdleAnimation(){
+        animator.SetBool("isIdling", PlayerStateInfo.Instance.playerIdling.isIdle);
         
+    }
+    public void UpdateDeathAnimation(){
+        animator.SetBool("isDead", PlayerStateInfo.Instance.playerDeath.isDead);
     }
     // Update is called once per frame
     void Update()
     {
         UpdateJumpAnimation();
         UpdateWalkAnimation();
-        UpdateWaitingTimeAnimation();
+        UpdateIdleAnimation();
+        UpdateDeathAnimation();
     }
 }

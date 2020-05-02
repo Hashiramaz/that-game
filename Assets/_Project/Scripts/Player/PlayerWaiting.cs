@@ -4,7 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(PlayerInputs))]
 [RequireComponent(typeof(PlayerMovementController))]
-public class PlayerWaiting : MonoBehaviour
+public class PlayerIdle : MonoBehaviour
 {
     protected PlayerInputs playerInputs{
         get{
@@ -18,7 +18,7 @@ public class PlayerWaiting : MonoBehaviour
 
     public float waitingTime = 600f;
     private float actualWaitingTime;
-    public bool isWaiting;
+    public bool isIdle;
     private void Awake() {
         actualWaitingTime = waitingTime;
     }
@@ -30,12 +30,12 @@ public class PlayerWaiting : MonoBehaviour
         }
         
         if (actualWaitingTime < 1){
-            isWaiting = true;
+            isIdle = true;
         }else{
-            isWaiting = false;
+            isIdle = false;
         }
         if (PlayerStateInfo.Instance.playerJump.isJumping){
-        isWaiting = false;
+        isIdle = false;
         actualWaitingTime = waitingTime;
         }
     }

@@ -5,7 +5,9 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerJump))]
 [RequireComponent(typeof(PlayerDash))]
 [RequireComponent(typeof(PlayerMovementController))]
-[RequireComponent(typeof(PlayerWaiting))]
+[RequireComponent(typeof(PlayerIdle))]
+[RequireComponent(typeof(PlayerDeath))]
+[RequireComponent(typeof(PlayerRespawn))]
 public class PlayerStateInfo : MonoBehaviour
 {
     public static PlayerStateInfo Instance;
@@ -29,11 +31,15 @@ public class PlayerStateInfo : MonoBehaviour
         playerJump = GetComponent<PlayerJump>();
         playerDash = GetComponent<PlayerDash>();
         playerMovementController = GetComponent<PlayerMovementController>();
-        playerWaiting = GetComponent<PlayerWaiting>();
+        playerIdling = GetComponent<PlayerIdle>();
+        playerDeath = GetComponent<PlayerDeath>();
+        playerRespawn = GetComponent<PlayerRespawn>();
     }
     public PlayerJump playerJump;
     public PlayerDash playerDash;
     public PlayerMovementController playerMovementController;
-    public PlayerWaiting playerWaiting;
+    public PlayerIdle playerIdling;
+    public PlayerDeath playerDeath;
+    public PlayerRespawn playerRespawn;
 
 }
