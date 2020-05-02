@@ -33,12 +33,12 @@ public class PlayerDash : MonoBehaviour
     }
     public void UpdateDashInput()
     {
-        if (Input.GetButtonDown("Dash"))
+        if (Input.GetButtonDown("Dash") && !buttonDashPressed)
         {
             buttonDashPressed = true;
             TryUseDash();
         }
-        if (Input.GetButtonUp("Dash"))
+        if (Input.GetButtonUp("Dash") && buttonDashPressed)
         {
             buttonDashPressed = false;
         }

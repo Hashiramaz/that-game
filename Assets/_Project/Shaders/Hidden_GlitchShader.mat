@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Hidden_GlitchShader
   m_Shader: {fileID: 4800000, guid: 82dbbcb14cd89c54cb43dd1e7fed3e0b, type: 3}
-  m_ShaderKeywords: ETC1_EXTERNAL_ALPHA _COLORGLITCHON_ON _DISPGLITCHON_ON _WRAPDISPCOORDS_ON
+  m_ShaderKeywords: ETC1_EXTERNAL_ALPHA _COLORGLITCHON_ON _WRAPDISPCOORDS_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -32,10 +32,10 @@ Material:
     - _ColorGlitchOn: 1
     - _ColorIntensity: 0.19
     - _ColorProbability: 0.07
-    - _DispGlitchOn: 1
+    - _DispGlitchOn: 0
     - _DispIntensity: 0.06
     - _DispProbability: 0.14
-    - _GlitchInterval: 0.1
+    - _GlitchInterval: 1
     - _Intensity: 1
     - _WrapDispCoords: 1
     m_Colors:

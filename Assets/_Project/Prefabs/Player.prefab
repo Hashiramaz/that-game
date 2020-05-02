@@ -52,6 +52,7 @@ GameObject:
   - component: {fileID: 2326982855170843032}
   - component: {fileID: 2886380514880447573}
   - component: {fileID: 6636308112863804505}
+  - component: {fileID: 4567892336835463063}
   - component: {fileID: 7125530695368572380}
   m_Layer: 8
   m_Name: Player
@@ -68,7 +69,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7177427368706533830}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.33, y: 0.33, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.28, y: 1.28, z: 1}
   m_Children:
   - {fileID: 7177427369444415672}
@@ -139,7 +140,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.03970235, y: 0.6461325}
+  m_Offset: {x: 0.037962556, y: 0.6461325}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -150,7 +151,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.4760697, y: 0.69474447}
+  m_Size: {x: 0.4725901, y: 0.69474447}
   m_EdgeRadius: 0
 --- !u!50 &7177427368706533836
 Rigidbody2D:
@@ -186,9 +187,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.037386864, y: 0.24610299}
+  m_Offset: {x: 0.038226366, y: 0.24610297}
   serializedVersion: 2
-  m_Radius: 0.24488395
+  m_Radius: 0.24572346
 --- !u!114 &114925927575172984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,12 +203,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dashSpeed: 25
-  dashTime: 0
   startDashTime: 0.1
   isOnDash: 0
   dashDirection: {x: 0, y: 0}
   currentDashTime: 0
   timeBetweenDash: 0.5
+  currentTimeBetweenDash: 0
   extraDashes: 0
 --- !u!114 &49054895177048854
 MonoBehaviour:
@@ -323,6 +324,7 @@ MonoBehaviour:
   playerMovementController: {fileID: 0}
   playerIdling: {fileID: 0}
   playerDeath: {fileID: 0}
+  playerRespawn: {fileID: 0}
 --- !u!114 &2886380514880447573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -337,6 +339,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDead: 0
   deathSound: Velho
+  respawnTime: 0
+  actualRespawnTime: 0
 --- !u!114 &6636308112863804505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -350,6 +354,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   respawnTime: 120
+  actualRespawnTime: 0
+--- !u!114 &4567892336835463063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7177427368706533830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7864ab6f46608fe48ad77bfd57202335, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &7125530695368572380
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -365,8 +382,8 @@ MonoBehaviour:
   sounds:
   - name: Velho
     clip: {fileID: 8300000, guid: cdbb9ad11b5e670409374a3efa10e15b, type: 3}
-    volume: 0
-    pitch: 0.1
+    volume: 0.1
+    pitch: 1
     source: {fileID: 0}
 --- !u!1 &7177427368855978115
 GameObject:
@@ -392,7 +409,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7177427368855978115}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.277, y: -0.053, z: 0}
+  m_LocalPosition: {x: 0.255, y: -0.053, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7177427368706533825}
