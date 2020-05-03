@@ -5,7 +5,6 @@ using Prime31;
 
 public class PlayerJump : MonoBehaviour
 {   
-    public Animator animator;
      protected PlayerInputs playerInputs{
         get{
             if(m_playerInputs == null)
@@ -68,6 +67,7 @@ public class PlayerJump : MonoBehaviour
     }
 
     public bool isJumping;
+    public bool isFalling;
 
     public bool buttonJumpPressed;
 
@@ -108,24 +108,24 @@ public class PlayerJump : MonoBehaviour
             jumpTimeCounter = jumpTime;
             // Player Can Jump if there's extra jumps
             if(actualExtraJumps >0){
+                isJumping = true;
                 Jump();
 
                 if(actualCoyoteTime > 0 && !isGrounded && !isJumping)
                 return;
-                isJumping = true;
                 actualExtraJumps--;
             }
             else
             {
                 // if not, player can jump only if is on the ground;
                 if(isGrounded && actualExtraJumps == 0 && !isJumping){
-                    Jump();
                     isJumping = true;
+                    Jump();
                 }
                
                 if ( actualCoyoteTime > 0 && !isGrounded && !isJumping ){
-                    Jump();
                     isJumping = true;
+                    Jump();
                     
                   //  if(actualExtraJumps>0)
                     //    actualExtraJumps--;
@@ -135,7 +135,9 @@ public class PlayerJump : MonoBehaviour
 
         //If the Button Jump is pressed Called this function every time
         if(buttonJumpPressed){
-           
+           if (isFalling){
+               isJumping = true;
+           }
             if(isJumping){
                 
                 // if(jumpTimeCounter>0){
@@ -169,7 +171,7 @@ public class PlayerJump : MonoBehaviour
     //Update If The Player is od The Ground 
     public void UpdateGrounded(){
         isGrounded = (Physics2D.OverlapCircle(groundCheckBack.position,checkGroundedRadius, WhatIsGround) || Physics2D.OverlapCircle(groundCheckFront.position,checkGroundedRadius, WhatIsGround));
-        isJumping = !isGrounded;
+        isFalling = !isGrounded;
     }
 
     public void UpdateCoyoteJumpTime(){

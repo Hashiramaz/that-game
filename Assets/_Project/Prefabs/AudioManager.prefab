@@ -46,31 +46,57 @@ MonoBehaviour:
   sounds:
   - name: Walk
     clip: {fileID: 8300000, guid: c5e449bf06a0ab34c9a5cb42f39a339d, type: 3}
+    mute: 0
+    playOnAwake: 0
     loop: 0
-    volume: 0.1
+    volume: 0.05
     pitch: 0.5
     source: {fileID: 0}
-  - name: Jump
+  - name: jump
     clip: {fileID: 8300000, guid: 13fcb29929b43364ca9b078494cdec3d, type: 3}
+    mute: 0
+    playOnAwake: 0
     loop: 0
-    volume: 0.1
-    pitch: 1.5
+    volume: 0
+    pitch: 0.5
     source: {fileID: 0}
   - name: Dash
     clip: {fileID: 8300000, guid: 433e904172303ff479b78e8ae53a3cfa, type: 3}
+    mute: 0
+    playOnAwake: 0
     loop: 0
     volume: 0.1
     pitch: 1
     source: {fileID: 0}
   - name: Death
     clip: {fileID: 8300000, guid: 1857580f939fe1a44bc162f96ad37df1, type: 3}
+    mute: 0
+    playOnAwake: 0
     loop: 0
     volume: 0.1
     pitch: 1
     source: {fileID: 0}
   - name: Glitch
     clip: {fileID: 8300000, guid: 69b93a7173a9c7c4ca431caa05ac7d54, type: 3}
+    mute: 0
+    playOnAwake: 0
     loop: 0
     volume: 0.1
     pitch: 1.33
+    source: {fileID: 0}
+  - name: Jump
+    clip: {fileID: 8300000, guid: 48ffbfe852cc39a4ba2540f5b7969cb2, type: 3}
+    mute: 0
+    playOnAwake: 0
+    loop: 0
+    volume: 0.075
+    pitch: 1
+    source: {fileID: 0}
+  - name: Music
+    clip: {fileID: 8300000, guid: b8b257f4a14e8f44580628db4f440969, type: 3}
+    mute: 0
+    playOnAwake: 1
+    loop: 1
+    volume: 0.1
+    pitch: 1
     source: {fileID: 0}

@@ -4,19 +4,22 @@ using UnityEngine;
 
 public class PlayerDash : MonoBehaviour
 {
-    private Rigidbody2D rb;
+         protected PlayerInputs playerInputs{
+        get{
+            if(m_playerInputs == null)
+                m_playerInputs = GetComponent<PlayerInputs>();
+            return m_playerInputs;
+        }
+    }
+
+    protected PlayerInputs m_playerInputs;
+    public Rigidbody2D rb;
     public float dashSpeed;
     private float dashTime;
     public float startDashTime;
     private float moveInput;
     public bool isOnDash;
-    public bool canUseDash
-    {
-        get
-        {
-            return !isOnDash && currentTimeBetweenDash == 0 && actualExtraDashes >= 0;
-        }
-    }
+    public bool canUseDash;
     public Vector2 dashDirection;
     public float currentDashTime;
     private bool buttonDashPressed;
@@ -33,13 +36,11 @@ public class PlayerDash : MonoBehaviour
     }
     public void UpdateDashInput()
     {
-        if (Input.GetButtonDown("Dash") && !buttonDashPressed)
+        if (playerInputs.Dash)
         {
             buttonDashPressed = true;
             TryUseDash();
-        }
-        if (Input.GetButtonUp("Dash") && buttonDashPressed)
-        {
+        }else{
             buttonDashPressed = false;
         }
     }
@@ -58,7 +59,7 @@ public class PlayerDash : MonoBehaviour
     }
     public void SetDashDirection()
     {
-        dashDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        dashDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
     }
     public void UpdateDashMoviment()
     {
@@ -75,7 +76,6 @@ public class PlayerDash : MonoBehaviour
                 currentTimeBetweenDash = timeBetweenDash;
                 rb.velocity = Vector2.zero;
                 isOnDash = false;
-
             }
         }
     }
@@ -96,11 +96,11 @@ public class PlayerDash : MonoBehaviour
         }
     }
     private float numberOfPlays = 1;
-    public string songName;
+    public string soundName;
     public void PlayerDashingSound(){
         if(isOnDash){
             if (numberOfPlays == 1){
-                AudioManager.Instance.Play(songName); 
+                AudioManager.Instance.Play(soundName); 
                 --numberOfPlays;
             }   
         }
@@ -108,12 +108,20 @@ public class PlayerDash : MonoBehaviour
             numberOfPlays = 1;
         }
     }
+    public void UpdateIfCanDash(){
+        if (!isOnDash && currentTimeBetweenDash == 0 && actualExtraDashes >= 0){
+            canUseDash = true;
+        }else{
+            canUseDash = false;
+        }
+    }
     // Update is called once per frame
     void FixedUpdate()
     {
-        UpdateDashMoviment();
         UpdateDashInput();
         UpdateTimeBetweenDash();
+        UpdateIfCanDash();
+        UpdateDashMoviment();
         UpdateDashRestart();
         PlayerDashingSound();
     }

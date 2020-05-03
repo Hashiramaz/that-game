@@ -119,7 +119,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 3
-  m_Material: {fileID: 6200000, guid: ec2481c60913b47d8bb304dd228940ec, type: 2}
+  m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
@@ -152,15 +152,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6446998df0c509a40ae7d7487e33cf7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 0}
   dashSpeed: 25
   startDashTime: 0.1
   isOnDash: 0
+  canUseDash: 0
   dashDirection: {x: 0, y: 0}
   currentDashTime: 0
   timeBetweenDash: 0.5
   currentTimeBetweenDash: 0
   extraDashes: 0
-  songName: Dash
+  soundName: Dash
 --- !u!114 &49054895177048854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,6 +192,7 @@ MonoBehaviour:
   Jump: 0
   HorizontalAxis: 0
   VerticalAxis: 0
+  Dash: 0
   ShootAxisTrigger: 0
   jumpTrigger: 0
   jumpAxis: 0
@@ -223,7 +226,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d8d218d575a57440a149eeb567bf1fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 7526919873948866662}
   groundCheckBack: {fileID: 2994026769516092317}
   groundCheckFront: {fileID: 7177427368855978124}
   m_jumpforce: 13
@@ -238,6 +240,7 @@ MonoBehaviour:
   normalGravity: 3
   m_isGrounded: 0
   isJumping: 0
+  isFalling: 0
   buttonJumpPressed: 0
   actualExtraJumps: 0
   jumpTimeCounter: 0
@@ -259,7 +262,11 @@ MonoBehaviour:
   currentMoveDirection: 0
   m_speed: 5
   allowModifySpeed: 1
+  isWalking: 0
   songName: Walk
+  loopTime: 12
+  actualLoopTime: 0
+  canPlaySound: 0
 --- !u!114 &2326982855170843032
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -397,6 +404,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -408,6 +416,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
