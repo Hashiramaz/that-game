@@ -14,7 +14,7 @@ public class Collectable : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            FindObjectOfType<AudioManager>().Play(SongName);
+            AudioManager.Instance.Play(SongName);
 
             Destroy(gameObject);
 

@@ -95,6 +95,19 @@ public class PlayerDash : MonoBehaviour
             currentTimeBetweenDash = 0;
         }
     }
+    private float numberOfPlays = 1;
+    public string songName;
+    public void PlayerDashingSound(){
+        if(isOnDash){
+            if (numberOfPlays == 1){
+                AudioManager.Instance.Play(songName); 
+                --numberOfPlays;
+            }   
+        }
+        if(canUseDash){
+            numberOfPlays = 1;
+        }
+    }
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -102,5 +115,6 @@ public class PlayerDash : MonoBehaviour
         UpdateDashInput();
         UpdateTimeBetweenDash();
         UpdateDashRestart();
+        PlayerDashingSound();
     }
 }

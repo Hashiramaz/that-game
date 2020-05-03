@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4864819075389741917
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4864819075389741915}
+  - component: {fileID: 4864819075389741916}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4864819075389741915
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4864819075389741917}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.3886247, y: 1.1172904, z: 0.11627774}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4864819075389741916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4864819075389741917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b13ff20942c461d40857e7ae301492df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Walk
+    clip: {fileID: 8300000, guid: c5e449bf06a0ab34c9a5cb42f39a339d, type: 3}
+    loop: 0
+    volume: 0.1
+    pitch: 0.5
+    source: {fileID: 0}
+  - name: Jump
+    clip: {fileID: 8300000, guid: 13fcb29929b43364ca9b078494cdec3d, type: 3}
+    loop: 0
+    volume: 0.1
+    pitch: 1.5
+    source: {fileID: 0}
+  - name: Dash
+    clip: {fileID: 8300000, guid: 433e904172303ff479b78e8ae53a3cfa, type: 3}
+    loop: 0
+    volume: 0.1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Death
+    clip: {fileID: 8300000, guid: 1857580f939fe1a44bc162f96ad37df1, type: 3}
+    loop: 0
+    volume: 0.1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Glitch
+    clip: {fileID: 8300000, guid: 69b93a7173a9c7c4ca431caa05ac7d54, type: 3}
+    loop: 0
+    volume: 0.1
+    pitch: 1.33
+    source: {fileID: 0}

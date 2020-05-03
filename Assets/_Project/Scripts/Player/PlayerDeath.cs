@@ -14,7 +14,7 @@ public class PlayerDeath : MonoBehaviour
     {
         isDead = true;
         if (numberOfPlays == 1){
-            FindObjectOfType<AudioManager>().Play(deathSound);
+            AudioManager.Instance.Play(deathSound);
             --numberOfPlays;
         }
     }

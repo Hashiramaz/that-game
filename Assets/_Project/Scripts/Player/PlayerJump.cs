@@ -80,8 +80,15 @@ public class PlayerJump : MonoBehaviour
     public void FixedUpdate() {
         UpdateJump();
         UpdateGrounded();
-        UpdateCoyoteJumpTime();
+        //UpdateCoyoteJumpTime();
         UpdateGravity();
+    }
+    /// <summary>
+    /// Update is called every frame, if the MonoBehaviour is enabled.
+    /// </summary>
+    void Update()
+    {   
+        PlayerJumpingSound();
     }
     //Update When The Player Can Jump
     public void UpdateJump(){
@@ -172,7 +179,19 @@ public class PlayerJump : MonoBehaviour
         actualCoyoteTime -= Time.deltaTime;
 
     }
-
+    private float numberOfPlays = 1;
+    public string songName;
+    public void PlayerJumpingSound(){
+        if(isJumping){
+            if (numberOfPlays == 1){
+                AudioManager.Instance.Play(songName); 
+                --numberOfPlays;
+            }   
+        }
+        if(isGrounded){
+        numberOfPlays = 1;
+        }
+    }
     public void UpdateGravity(){
         if(rb.velocity.y < 0){
             rb.gravityScale = fallMultiplier;
