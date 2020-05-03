@@ -8680,7 +8680,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7812238c4fb3c56419458514165efddd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: EmdgameScrene
+  sceneName: EndgameScene
 --- !u!212 &2130941007
 SpriteRenderer:
   m_ObjectHideFlags: 0
