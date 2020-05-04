@@ -9,6 +9,7 @@ public class PlayerInputs : MonoBehaviour
    public float HorizontalAxis;
    public float VerticalAxis;
     public bool Dash;
+    public bool Enter;
    public float ShootAxisTrigger;
 
    public bool jumpTrigger;
@@ -41,6 +42,7 @@ public class PlayerInputs : MonoBehaviour
             Jump = Input.GetButton("Jump");
             HorizontalAxis = Input.GetAxisRaw("Horizontal");
             Dash = Input.GetButton("Dash");
+            Enter = Input.GetButton("Submit");
 
 
         }
