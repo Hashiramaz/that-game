@@ -56,6 +56,7 @@ public class PlayerDash : MonoBehaviour
         SetDashDirection();
         isOnDash = true;
         --actualExtraDashes;
+        PlayDashSound();
     }
     public void SetDashDirection()
     {
@@ -97,16 +98,8 @@ public class PlayerDash : MonoBehaviour
     }
     private float numberOfPlays = 1;
     public string soundName;
-    public void PlayerDashingSound(){
-        if(isOnDash){
-            if (numberOfPlays == 1){
-                AudioManager.Instance.Play(soundName); 
-                --numberOfPlays;
-            }   
-        }
-        if(canUseDash){
-            numberOfPlays = 1;
-        }
+    public void PlayDashSound(){
+        AudioManager.Instance.Play(soundName); 
     }
     public void UpdateIfCanDash(){
         if (!isOnDash && currentTimeBetweenDash == 0 && actualExtraDashes >= 0){
@@ -123,6 +116,5 @@ public class PlayerDash : MonoBehaviour
         UpdateIfCanDash();
         UpdateDashMoviment();
         UpdateDashRestart();
-        PlayerDashingSound();
     }
 }

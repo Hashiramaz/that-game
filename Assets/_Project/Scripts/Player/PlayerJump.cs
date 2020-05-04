@@ -88,7 +88,7 @@ public class PlayerJump : MonoBehaviour
     /// </summary>
     void Update()
     {   
-        PlayerJumpingSound();
+        PlayJumpingSound();
     }
     //Update When The Player Can Jump
     public void UpdateJump(){
@@ -183,7 +183,7 @@ public class PlayerJump : MonoBehaviour
     }
     private float numberOfPlays = 1;
     public string songName;
-    public void PlayerJumpingSound(){
+    public void PlayJumpingSound(){
         if(isJumping){
             if (numberOfPlays == 1){
                 AudioManager.Instance.Play(songName); 
