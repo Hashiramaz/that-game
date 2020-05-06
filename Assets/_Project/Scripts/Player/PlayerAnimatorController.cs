@@ -12,6 +12,8 @@ public class PlayerAnimatorController : MonoBehaviour
     }
     public void UpdateJumpAnimation(){
         animator.SetBool("isJumping", PlayerStateInfo.Instance.playerJump.isJumping);
+        animator.SetBool("isGrounded", PlayerStateInfo.Instance.playerJump.isGrounded);
+        animator.SetBool("isFalling", PlayerStateInfo.Instance.playerJump.isFalling);
     }
     public void UpdateWalkAnimation(){
         animator.SetBool("isWalking", PlayerStateInfo.Instance.playerMovementController.currentMoveDirection != 0);

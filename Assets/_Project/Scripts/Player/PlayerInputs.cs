@@ -41,6 +41,7 @@ public class PlayerInputs : MonoBehaviour
         {
             Jump = Input.GetButton("Jump");
             HorizontalAxis = Input.GetAxisRaw("Horizontal");
+            VerticalAxis = Input.GetAxisRaw("Vertical");
             Dash = Input.GetButton("Dash");
             Enter = Input.GetButton("Submit");
 

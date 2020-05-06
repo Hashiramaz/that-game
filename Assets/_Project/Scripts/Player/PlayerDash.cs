@@ -60,7 +60,7 @@ public class PlayerDash : MonoBehaviour
     }
     public void SetDashDirection()
     {
-        dashDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        dashDirection = new Vector2(playerInputs.HorizontalAxis, playerInputs.VerticalAxis);
     }
     public void UpdateDashMoviment()
     {

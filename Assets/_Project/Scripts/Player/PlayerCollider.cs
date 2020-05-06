@@ -19,6 +19,9 @@ public class PlayerCollider : MonoBehaviour
     {
         if (collisionInfo.collider.tag == "Food"){
             PlayerStateInfo.Instance.playerDash.extraDashes++;
+            PlayerStateInfo.Instance.playerDash.currentTimeBetweenDash = 0;
+            PlayerStateInfo.Instance.playerDash.isOnDash = false;
+            PlayerStateInfo.Instance.playerDash.canUseDash = true;
         }
         if (collisionInfo.collider.tag == "Trash"){
             PlayerStateInfo.Instance.playerDash.extraDashes = -1;
